@@ -12,13 +12,15 @@ const PrimaryCard = ({
 
   return (
     <GradientContainer className={`max-w-sm ${border}`}>
-      <Image
-        className='h-40 w-48'
-        src={`${image}`}
-        fullHeight={false}
-        fullWidth={false}
-        alt={imageAltText}
-      />
+      {image && (
+        <Image
+          className='h-40 w-48'
+          src={image}
+          fullHeight={false}
+          fullWidth={false}
+          alt={imageAltText}
+        />
+      )}
       <Text level='h4' className='heading-4 mt-4'>
         {title}
       </Text>

@@ -62,6 +62,7 @@ const PRODUCTS: PrimaryCardWithCTAProps[] = [
     active: true,
     ctaText: 'Explore Free Projects',
   },
+
   {
     id: 'workshops',
     image: `${STATIC_FILE_PATH.svg}/workshops.svg`,
@@ -92,6 +93,18 @@ const PRODUCTS: PrimaryCardWithCTAProps[] = [
     href: products.os.slug,
     active: false,
   },
+
+  {
+    id: 'interview-prep',
+    image: `${STATIC_FILE_PATH.svg}/peer-to-peer-learning.svg`,
+    imageAltText: 'Interview Preparation',
+    title: 'Interview Preparation',
+    content: 'Practice interview questions and ace your next job interview.',
+    href: '/interviewPrep',
+    active: true,
+    ctaText: 'Explore Interview Prep',
+  },
+
 ];
 
 const TBP_PROJECTS: PrimaryCardWithCTAProps[] = [
