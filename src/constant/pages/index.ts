@@ -22,6 +22,12 @@ const TOP_NAVIGATION: TopNavbarContainerProps = {
       description: products.shiksha.description,
       href: products.shiksha.slug,
     },
+    {
+      id: v4(),
+      name: products.interview.label,
+      description: products.interview.description,
+      href: products.interview.slug,
+    },
   ],
   links: [
     {
