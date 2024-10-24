@@ -30,7 +30,7 @@ export type ProductLabelType =
   | 'The Boring Projects'
   | 'Shiksha'
   | 'The Boring Workshops'
-  | 'Interview'
+  | 'Interview Prep'
   | 'The Boring Open Source';
 
 export interface ProductDataProps {

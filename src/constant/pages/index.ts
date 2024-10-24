@@ -24,9 +24,9 @@ const TOP_NAVIGATION: TopNavbarContainerProps = {
     },
     {
       id: v4(),
-      name: products.interview.label,
-      description: products.interview.description,
-      href: products.interview.slug,
+      name: products.interviewPrep.label,
+      description: products.interviewPrep.description,
+      href: products.interviewPrep.slug,
     },
   ],
   links: [
