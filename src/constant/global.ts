@@ -1,4 +1,6 @@
 import { ProductDataProps } from '@/interfaces';
+import { routes } from './routes';
+
 
 // Paths
 const STATIC_FILE_PATH = {
@@ -33,7 +35,7 @@ const products: ProductDataProps = {
   },
   interviewPrep: {
     label: 'Interview Prep',
-    slug: '/interview',
+    slug: routes.interviewPrep,
     description:'Prepare with the Most Asked Tech Interview Questions',
   },
   workshops: {
