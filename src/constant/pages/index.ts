@@ -92,6 +92,16 @@ const PRODUCTS: PrimaryCardWithCTAProps[] = [
     href: products.os.slug,
     active: false,
   },
+   {
+    id: 'interview',
+    image: `${STATIC_FILE_PATH.svg}/shiksha.svg`, 
+    imageAltText: products.interview.label,
+    title: products.interview.label,
+    content: products.interview.description,
+    href: products.interview.slug,
+    active: true,
+    ctaText: 'Explore Interview Prep',
+  },
 ];
 
 const TBP_PROJECTS: PrimaryCardWithCTAProps[] = [
