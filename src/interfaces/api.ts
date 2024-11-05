@@ -215,6 +215,15 @@ export interface BaseShikshaCourseResponseProps extends Partial<CourseModel> {
   chapters?: ExtendedCourseChapterModel[];
 }
 
+export interface ExtendedSheetQuestionModel extends InterviewSheetQuestionModel {
+  isCompleted: boolean; 
+}
+
+export interface BaseSheetResponseProps extends Partial<InterviewSheetModel> {
+  isEnrolled?: boolean; 
+  questions?: ExtendedSheetQuestionModel[]; 
+}
+
 export interface BaseInterviewSheetResponseProps
   extends Partial<InterviewSheetModel> {
   isEnrolled?: boolean;

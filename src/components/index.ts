@@ -3,6 +3,9 @@ const ProgressBar = dynamic(() => import('@/components/common/ProgressBar'));
 const CourseHeroContainer = dynamic(
   () => import('@/components/containers/Page/Course/CourseHeroContainer')
 );
+const SheetHeroContainer = dynamic(
+  () => import('@/components/containers/Page/Sheet/SheetHeroContainer')
+);
 const Navbar = dynamic(() => import('@/components/layout/Navbar'));
 const LinkText = dynamic(() => import('@/components/common/Typography/Link'));
 const Text = dynamic(() => import('@/components/common/Typography/Text'));
@@ -112,6 +115,9 @@ const Community = dynamic(() => import('./containers/Page/Landing/Community'));
 const ChapterLink = dynamic(
   () => import('@/components/common/Learning/ChapterLink')
 );
+const QuestionLink = dynamic(
+  () => import('@/components/common/Learning/QuestionLink')
+);
 
 export {
   Navbar,
@@ -164,6 +170,8 @@ export {
   Community,
   MentorshipPlans,
   CourseHeroContainer,
+  SheetHeroContainer,
   ChapterLink,
   ProgressBar,
+  QuestionLink,
 };

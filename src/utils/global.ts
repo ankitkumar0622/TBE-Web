@@ -1,12 +1,14 @@
 import { envConfig, getSEOMeta, routes } from '@/constant';
 import {
   BaseShikshaCourseResponseProps,
+  BaseSheetResponseProps,
   PageSlug,
   ProjectPickedPageProps,
 } from '@/interfaces';
 import {
   getSelectedCourseChapterMeta,
   getSelectedProjectChapterMeta,
+  getSelectedSheetQuestionMeta,
   isUserAuthenticated,
 } from '.';
 
@@ -160,10 +162,72 @@ const getCoursePageProps = async (context: any) => {
   };
 };
 
+// const getSheetPageProps = async (context: any) => {
+//   const { req, query } = context;
+//   const { sheetSlug, sheetId, questionId } = query;
+
+//   let slug = '/';
+
+//   if (sheetSlug) {
+//     slug = '/interview-prep/' + sheetSlug;
+//   }
+
+//   const seoMeta = getSEOMeta(slug as PageSlug);
+
+//   if (sheetId && seoMeta) {
+//     try {
+//       const user = await isUserAuthenticated(req);
+
+//       const { status, data } = await fetchAPIData(
+//         routes.api.sheetByIdWithUser(sheetId, user?.id)
+//       );
+      
+//       if (!status) {
+//         return {
+//           redirect: {
+//             destination: '/404',
+//           },
+//           props: { slug },
+//         };
+//       }
+
+//       const sheet: BaseSheetResponseProps = data;
+//       let { meta } = sheet;
+//       let currentQuestionId = '';
+
+//       if (questionId) {
+//         currentQuestionId = questionId;
+
+//         const selectedQuestionMeta = getSelectedSheetQuestionMeta(sheet, questionId);
+
+//         if (selectedQuestionMeta) meta = selectedQuestionMeta;
+//       }
+
+//       return {
+//         props: {
+//           slug,
+//           seoMeta,
+//           sheet,
+//           meta,
+//           currentQuestionId,
+//         },
+//       };
+//     } catch (error) {
+//       console.error('Error fetching sheet data:', error);
+//     }
+//   }
+
+//   return {
+//     redirect: {
+//       destination: '/404',
+//     },
+//     props: { slug },
+//   };
+// };
+
 const fetchAPIData = async (url: string) => {
   const response = await fetch(`${envConfig.BASE_API_URL}/${url}`);
-
   return await response.json();
 };
 
-export { getPreFetchProps, getProjectPageProps, getCoursePageProps };
+export { getPreFetchProps, getProjectPageProps, getCoursePageProps, getSheetPageProps };

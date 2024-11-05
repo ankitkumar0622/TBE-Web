@@ -2,6 +2,7 @@ import { envConfig } from '@/constant';
 import {
   BaseInterviewSheetResponseProps,
   BaseShikshaCourseResponseProps,
+  BaseSheetResponseProps,
   ProjectDocumentModel,
   ProjectPickedPageProps,
   User,
@@ -223,6 +224,69 @@ const mapInterviewSheetResponseToCard = (
   );
 };
 
+const getSelectedSheetQuestionMeta = (
+  sheet: BaseSheetResponseProps,
+  questionId: string
+) => {
+  if (!sheet.questions) return null;
+
+  const selectedQuestion = sheet.questions.find(
+    (question) => question._id.toString() === questionId
+  );
+
+  return selectedQuestion?.question ?? '';
+};
+
+const mapSheetResponseToCard = (
+  sheetsData: BaseSheetResponseProps[]
+) => {
+  return sheetsData?.map(
+    ({
+      _id,
+      coverImageURL,
+      name,
+      description,
+      liveOn = new Date(),
+      slug,
+      isEnrolled,
+    }) => {
+      const isActive = isProgramActive(liveOn);
+
+      let ctaText = 'Coming Soon';
+      let launchingOn = '';
+
+      if (isEnrolled) {
+        ctaText = 'Continue Practicing';
+      }
+
+      if (isActive) {
+        ctaText = 'View Sheet';
+      } else {
+        const date = new Date(liveOn);
+        launchingOn = `Launching on ${date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+        })}`;
+      }
+
+      return {
+        id: _id,
+        image: coverImageURL,
+        title: name,
+        imageAltText: name,
+        content: description,
+        href: `/interview-prep/${slug}/?sheetId=${_id}`,
+        isEnrolled,
+        active: isActive,
+        ctaText,
+        launchingOn,
+      };
+    }
+  );
+};
+
 export {
   formatDate,
   formatTime,
@@ -237,4 +301,6 @@ export {
   isUserAuthenticated,
   getSelectedCourseChapterMeta,
   mapInterviewSheetResponseToCard,
+  getSelectedSheetQuestionMeta,
+  mapSheetResponseToCard,
 };

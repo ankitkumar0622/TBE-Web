@@ -312,6 +312,16 @@ export interface ChapterLinkProps {
   handleChapterClick: (content: string) => void;
 }
 
+export interface QuestionLinkProps {
+  href: string;
+  questionId: string;
+  name: string;
+  content: string;
+  isCompleted: boolean;
+  currentQuestionId: string;
+  handleQuestionClick: (content: string) => void;
+}
+
 export interface MDXRendererProps {
   mdxSource: string;
   actions?: React.ReactNode[];
